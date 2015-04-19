@@ -915,6 +915,7 @@ body {
 }
 .site-meta {
   text-align: center;
+  float: left;
 }
 @media (max-width: 767px) {
   .site-meta {
@@ -953,7 +954,8 @@ body {
   top: -10px;
 }
 .menu {
-  margin-top: 20px;
+  margin-top: -2px;
+  float: right;
   padding-left: 0;
   text-align: center;
 }
@@ -1149,7 +1151,7 @@ input.menu-search-input {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #160eff;
+  background: #ff6714;
 }
 .sidebar-nav {
   margin: 0;
