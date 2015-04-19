@@ -874,7 +874,7 @@ body {
   width: 960px;
 }
 .one-column .header-inner {
-  width: 700px;
+  width: 800px;
 }
 .main {
   padding-bottom: 150px;
@@ -884,10 +884,10 @@ body {
   width: 960px;
 }
 .one-column .main-inner {
-  width: 700px;
+  width: 800px;
 }
 .main-inner .content {
-  width: 700px;
+  width: 800px;
 }
 .footer {
   position: absolute;
@@ -901,7 +901,7 @@ body {
   width: 960px;
 }
 .one-column .footer-inner {
-  width: 700px;
+  width: 800px;
 }
 .headband {
   height: 3px;
@@ -1151,7 +1151,7 @@ input.menu-search-input {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b17383;
+  background: #304ee3;
 }
 .sidebar-nav {
   margin: 0;
