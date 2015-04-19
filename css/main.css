@@ -290,13 +290,13 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 60px 0 15px;
+  margin: 30px 0 15px;
 }
 ul {
   list-style: square;
 }
 hr {
-  margin: 40px 0;
+  margin: 20px 0;
   height: 3px;
   border: none;
   background-color: #ddd;
@@ -870,7 +870,7 @@ body {
 }
 .header-inner {
   margin: 0 auto;
-  padding: 100px 0 70px;
+  padding: 60px 0 70px;
   width: 960px;
 }
 .one-column .header-inner {
@@ -1151,7 +1151,7 @@ input.menu-search-input {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6714;
+  background: #b17383;
 }
 .sidebar-nav {
   margin: 0;
@@ -1310,7 +1310,7 @@ input.menu-search-input {
   background: #fff;
 }
 .posts-expand {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 @media (max-width: 767px) {
   .posts-expand {
@@ -1362,7 +1362,7 @@ input.menu-search-input {
   transform: scaleX(1);
 }
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
+  margin: 3px 0 30px 0;
   color: #999;
   font-size: 12px;
   text-align: center;
