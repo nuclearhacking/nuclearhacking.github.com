@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-25T04:39:40.746Z</updated>
+  <updated>2015-04-25T10:12:28.524Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[删除Android自带软件方法及adb remount 失败解决方案]]></title>
+    <link href="http://yoursite.com/2015/04/25/2015-04-26-adb%20remount%20%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2015/04/25/2015-04-26-adb remount 失败解决方案/</id>
+    <published>2015-04-25T10:12:28.524Z</published>
+    <updated>2015-04-25T10:12:28.524Z</updated>
+    <content type="html"><![CDATA[<h1 id="一、删除Android自带软件方法">一、删除Android自带软件方法</h1><ol>
+<li><p>在电脑上打开cmd,然后输入命令</p>
+<p> adb remount</p>
+<p> adb shell</p>
+<p> su</p>
+</li>
+<li><p>接着就是Linux命令行模式了,输入</p>
+<p> cd system/app</p>
+</li>
+<li><p>然后输入ls回车.</p>
+</li>
+</ol>
+<p>这时候列表显示了system/app里面的所有文件。</p>
+<ol>
+<li>开始删除吧.xxx.odex和xxx.apk</li>
+</ol>
+<p>我们要删除这2个文件,敲入以下命令:</p>
+<pre><code><span class="title">rm</span> <span class="regexp">xxx.*</span>
+</code></pre><p>如果还没成功,执行第五步:</p>
+<ol>
+<li><p>E：>adb pull /data/system/packages.xml  删除相关信息</p>
+<p> E：>adb push /packages.xml  /data/system</p>
+<p> E：>adb reboot</p>
+</li>
+</ol>
+<h1 id="二、adb_remount_失败：remount_failed:_Operation_not_permitted">二、adb remount 失败：remount failed: Operation not permitted</h1><pre><code>remount failed: Operation <span class="keyword">not</span> permitted
+</code></pre><ol>
+<li><p>确定是否正确连接手机了</p>
+<p> adb devices</p>
+</li>
+<li><p>进入shell</p>
+<p> adb shell</p>
+</li>
+<li><p>shell中输入命令（命令最前面的#号不用输入）</p>
+<h1 id="su">su</h1><h1 id="mount_-o_rw,remount_-t_yaffs2_/dev/block/mtdblock3_/system">mount -o rw,remount -t yaffs2 /dev/block/mtdblock3 /system</h1><h1 id="chmod_777_/system">chmod 777 /system</h1><h1 id="exit">exit</h1></li>
+<li><p>然后你就有系统目录的读写权限了，例如你就可以使用adb push 把文件push到系统目录中去了，或者删除系统文件。</p>
+</li>
+</ol>
+<h1 id="三、Installation_error:_INSTALL_FAILED_UID_CHANGED_的解决办法">三、Installation error: INSTALL_FAILED_UID_CHANGED 的解决办法</h1><p>出现此问题的原因大多是apk冲突造成，解决的办法如下：</p>
+<ol>
+<li><p>Settings -&gt; Applications, 卸载出现问题的apk，重新安装即可。</p>
+</li>
+<li><p>如果apk无法卸载，则将apk相关文件和相关内容删除。Step:</p>
+<p> (1) 删除可能相关的文件：/data/app(apk file), /system/app/(apk file), /data/data/(data file)，</p>
+<p> (2) 除了删除以上文件之外，还需要将/data/system/packages.xml文件中与apk相关的内容全部删除。Step:</p>
+<pre><code><span class="tag">a</span>. adb pull /data/system/packages<span class="class">.xml</span>  ~/Desktop.
+
+<span class="tag">b</span>. 修改pakcages.xml，将与apk相关的packages标签及其内容删除。
+
+c. adb push ～/Desktop/packages<span class="class">.xml</span> /data/system/.
+</code></pre><p> (3) 重启手机</p>
+<p> (4) 重新安装apk文件。</p>
+</li>
+</ol>
+<p>一般方法一就能解决问题，方法二算是后补。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="一、删除Android自带软件方法">一、删除Android自带软件方法</h1><ol>
+<li><p>在电脑上打开cmd,然后输入命令</p>
+<p> adb remount</p>
+<p> adb shell</p>
+<p> su</p>
+</li>
+<li]]>
+    </summary>
+    
+      <category term="ADB" scheme="http://yoursite.com/tags/ADB/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[U盘容量变小回复方法]]></title>
