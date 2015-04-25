@@ -161,39 +161,44 @@
         
           <h1 id="一、删除Android自带软件方法">一、删除Android自带软件方法</h1><ol>
 <li><p>在电脑上打开cmd,然后输入命令</p>
-<p> adb remount</p>
-<p> adb shell</p>
-<p> su</p>
-</li>
+<pre><code>adb remount
+
+adb <span class="keyword">shell</span>
+
+<span class="keyword">su</span>
+</code></pre></li>
 <li><p>接着就是Linux命令行模式了,输入</p>
-<p> cd system/app</p>
-</li>
-<li><p>然后输入ls回车.</p>
-</li>
+<pre><code><span class="built_in">cd</span> <span class="built_in">system</span>/app
+</code></pre></li>
 </ol>
+<p>3.然后输入ls回车.</p>
 <p>这时候列表显示了system/app里面的所有文件。</p>
-<ol>
-<li>开始删除吧.xxx.odex和xxx.apk</li>
-</ol>
+<p>4.开始删除吧.xxx.odex和xxx.apk</p>
 <p>我们要删除这2个文件,敲入以下命令:</p>
 <pre><code><span class="title">rm</span> <span class="regexp">xxx.*</span>
-</code></pre><p>如果还没成功,执行第五步:</p>
-<ol>
-<li><p>E：>adb pull /data/system/packages.xml  删除相关信息</p>
-<p> E：>adb push /packages.xml  /data/system</p>
-<p> E：>adb reboot</p>
-</li>
-</ol>
-<h1 id="二、adb_remount_失败：remount_failed:_Operation_not_permitted">二、adb remount 失败：remount failed: Operation not permitted</h1><pre><code>remount failed: Operation <span class="keyword">not</span> permitted
+</code></pre><p>5.如果还没成功,执行第五步:</p>
+<pre><code><span class="type">E</span>：\&gt;adb pull /<span class="typedef"><span class="keyword">data</span>/system/packages.xml  删除相关信息</span>
+
+<span class="type">E</span>：\&gt;adb push /packages.xml  /<span class="typedef"><span class="keyword">data</span>/system</span>
+
+<span class="type">E</span>：\&gt;adb reboot
+</code></pre><h1 id="二、adb_remount_失败：remount_failed:_Operation_not_permitted">二、adb remount 失败：remount failed: Operation not permitted</h1><pre><code>remount failed: Operation <span class="keyword">not</span> permitted
 </code></pre><ol>
 <li><p>确定是否正确连接手机了</p>
-<p> adb devices</p>
-</li>
+<pre><code><span class="title">adb</span> devices
+</code></pre></li>
 <li><p>进入shell</p>
-<p> adb shell</p>
-</li>
+<pre><code>adb <span class="built_in">shell</span>
+</code></pre></li>
 <li><p>shell中输入命令（命令最前面的#号不用输入）</p>
-<h1 id="su">su</h1><h1 id="mount_-o_rw,remount_-t_yaffs2_/dev/block/mtdblock3_/system">mount -o rw,remount -t yaffs2 /dev/block/mtdblock3 /system</h1><h1 id="chmod_777_/system">chmod 777 /system</h1><h1 id="exit">exit</h1></li>
+<pre><code><span class="preprocessor"># su</span>
+
+<span class="preprocessor"># mount -o rw,remount -t yaffs2 /dev/block/mtdblock3 /system</span>
+
+<span class="preprocessor"># chmod 777 /system</span>
+
+<span class="preprocessor"># exit</span>
+</code></pre></li>
 <li><p>然后你就有系统目录的读写权限了，例如你就可以使用adb push 把文件push到系统目录中去了，或者删除系统文件。</p>
 </li>
 </ol>
