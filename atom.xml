@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-19T06:04:27.955Z</updated>
+  <updated>2015-04-25T04:39:40.746Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[U盘容量变小回复方法]]></title>
+    <link href="http://yoursite.com/2015/04/25/2015-04-25-U%E7%9B%98%E5%AE%B9%E9%87%8F%E5%8F%98%E5%B0%8F%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2015/04/25/2015-04-25-U盘容量变小恢复方法/</id>
+    <published>2015-04-25T04:39:40.746Z</published>
+    <updated>2015-04-25T04:39:40.746Z</updated>
+    <content type="html"><![CDATA[<p>把U盘做系统启动盘后，发现U盘容量变少了很多，原来是因为做U盘启动盘的时候，U盘启动盘制作软件都是把写入U盘的PE文件隐藏了，防止用户不小心删除文件。 所以说这些空间应该是被隐藏了。</p>
+<p>如果下软件来修复的话很麻烦，还不如用命令行来重新分区：</p>
+<p>准备工作：前提你的操作系统必须是Windows7以上，其实就是用到了Windows7中的Diskpart磁盘分区管理工具。</p>
+<ol>
+<li><p>开始——运行——输入cmd回车，打开命令提示符窗口</p>
+</li>
+<li><p>输入dispart 回车</p>
+</li>
+<li><p>在新弹出的命令行窗口中输入list disk</p>
+</li>
+<li><p>然后输入select disk #（注意：#U盘磁盘编号U盘磁盘编号,这一步是选择U盘磁盘编号，别选错了，选成了你的硬盘的话后果很严重，记得看下磁盘大小，你就不会选错了）</p>
+</li>
+<li><p>输入clean</p>
+</li>
+<li><p>输入create partition primary</p>
+</li>
+<li><p>输入select partition 1</p>
+</li>
+<li><p>输入format fs=ntfs quick</p>
+</li>
+<li><p>输入assign</p>
+</li>
+<li><p>关闭命令提示符窗口，U盘恢复正常使用</p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>把U盘做系统启动盘后，发现U盘容量变少了很多，原来是因为做U盘启动盘的时候，U盘启动盘制作软件都是把写入U盘的PE文件隐藏了，防止用户不小心删除文件。 所以说这些空间应该是被隐藏了。</p>
+<p>如果下软件来修复的话很麻烦，还不如用命令行来重新分区：</p>
+<p>准备工]]>
+    </summary>
+    
+      <category term="U盘" scheme="http://yoursite.com/tags/U%E7%9B%98/"/>
+    
+      <category term="琐碎技术" scheme="http://yoursite.com/categories/%E7%90%90%E7%A2%8E%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hello World]]></title>
