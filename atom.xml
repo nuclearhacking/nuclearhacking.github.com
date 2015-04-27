@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-25T10:23:21.125Z</updated>
+  <updated>2015-04-27T08:16:57.897Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[android studio 自动更新失败解决办法]]></title>
+    <link href="http://yoursite.com/2015/04/27/2015-04-27-android%20studio%20%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://yoursite.com/2015/04/27/2015-04-27-android studio 自动更新失败解决办法/</id>
+    <published>2015-04-27T08:17:45.426Z</published>
+    <updated>2015-04-27T08:16:57.897Z</updated>
+    <content type="html"><![CDATA[<p>自从GoogleI/O之后，很多开发者开始转向使用android studio开发项目，但是每当选择check updates的时候你总是会得到一个失败结果：Connection failed. Please check your network connection and try again 。很明显，我们生活在围城里面的人又有特殊待遇了。  网上找了一下解决办法，都说用代理，我用goagent试了一下好像不是很成功，后来发现可以配置一个更新地址来处理，方法如下：</p>
+<p>如果你是Windows平台,找到android studio下面的/bin/studio.exe.vmoptions文件添加以下内容。（64位系统是studio64.exe.vmoptions）</p>
+<pre><code>-Djava<span class="class">.net</span><span class="class">.preferIPv4Stack</span>=true
+-Didea<span class="class">.updates</span><span class="class">.url</span>=http:<span class="comment">//dl.google.com/android/studio/patches/updates.xml</span>
+-Didea<span class="class">.patches</span><span class="class">.url</span>=http:<span class="comment">//dl.google.com/android/studio/patches/</span>
+</code></pre><p>Mac OS系统方法如下：</p>
+<ol>
+<li><p>选择你的android studio.app</p>
+</li>
+<li><p>显示包内容</p>
+</li>
+<li><p>打开Content/Info.plist 文件找到 <key>VMOptions</key> 在内容里面增加以下几个参数</p>
+<p> -Djava.net.preferIPv4Stack=true<br> -Didea.updates.url=<a href="http://dl.google.com/android/studio/patches/updates.xml" target="_blank" rel="external">http://dl.google.com/android/studio/patches/updates.xml</a><br> -Didea.patches.url=<a href="http://dl.google.com/android/studio/patches/" target="_blank" rel="external">http://dl.google.com/android/studio/patches/</a></p>
+</li>
+</ol>
+<p>保存，如果你的android studio是开着的要重启一下。</p>
+<p>然后检查更新，一切搞定。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>自从GoogleI/O之后，很多开发者开始转向使用android studio开发项目，但是每当选择check updates的时候你总是会得到一个失败结果：Connection failed. Please check your network connection an]]>
+    </summary>
+    
+      <category term="Android studio" scheme="http://yoursite.com/tags/Android-studio/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[删除Android自带软件方法及adb remount 失败解决方案]]></title>
